@@ -1,19 +1,40 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 import UsersList from "../components/UsersList";
 
 const Users = () => {
-  const USERS = [
-    {
-      id: "u1",
-      name: "Dung Nguyen",
-      image:
-        "https://i.insider.com/5c20d8ee01c0ea245970caa3?width=1136&format=jpeg",
-      places: 3,
-    },
-  ];
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadedUsers, setLoadedUsers] = useState();
 
-  return <UsersList items={USERS} />;
+  useEffect(() => {
+    //dont make function an async, do it like below
+    const fetchUser = async () => {
+      try {
+        const responseData = await sendRequest(
+          "http://localhost:5000/api/users"
+        ); //default GET
+
+        setLoadedUsers(responseData.users);
+      } catch (err) {}
+    };
+    fetchUser();
+    //sendRequest change when re-initilized ==> a dependency, must include here 
+    //=> useCallback() to prevent it from changing and ensuring useEffect only runss once after component mounted
+  }, [sendRequest]); 
+
+  return (
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
+      )}
+      {!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
+    </React.Fragment>
+  );
 };
 
 export default Users;
