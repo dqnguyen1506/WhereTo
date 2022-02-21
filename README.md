@@ -41,11 +41,13 @@ MongoDb, Express.js, React.js, Node.js, Npm
 3. `npm install` to install all dependencies used in project
 5. `npm start` to start project
 
-## Previews:
-![Login page](https://user-images.githubusercontent.com/44854519/146817481-391c33c3-b161-42c0-bff9-64dc61b9a445.png)
-![Homepage](https://user-images.githubusercontent.com/44854519/146817516-0bcdffd4-34bf-40c6-b250-089f4e3fb412.png)
-![product details](https://user-images.githubusercontent.com/44854519/146817522-9cb56fa4-18ed-4729-8f78-57b6d54850e4.png)
-![search](https://user-images.githubusercontent.com/44854519/146817525-9e648693-d64f-46ae-9517-fcd463007553.png)
+# Previews:
+#![Screenshot 2022-02-20 at 21-52-48 React App](https://user-images.githubusercontent.com/44854519/154897306-5c7edee4-9e60-48ec-98a4-db11333608a9.png)
+![Screenshot 2022-02-20![Screenshot 2022-02-20 at 21-53-44 React App](https://user-images.githubusercontent.com/44854519/154897354-4b2f3f35-a176-4255-a3da-3c9d561701ef.png)
+ at 21-53-16 React App](https://user-images.githubusercontent.com/44854519/154897335-986a3897-4201-4718-a4ec-b27e495d0e14.png)
+![Screenshot 2022-02-20 at 21-53-31 React App](https://user-images.githubusercontent.com/44854519/154897341-4af609b9-0bf3-4271-a749-fab603403a58.png)
+![Screenshot 2022-02-20 at 21-52-11 React App](https://user-images.githubusercontent.com/44854519/154897350-754ca2c6-b909-431e-bbfb-5c2dd5e0d0f8.png)
+
 
 ## Versions:
     1.0.0: Listed features added and implemented
