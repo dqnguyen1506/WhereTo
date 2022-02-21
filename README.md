@@ -44,8 +44,8 @@ MongoDb, Express.js, React.js, Node.js, Npm
 # Previews:
 #![Screenshot 2022-02-20 at 21-52-48 React App](https://user-images.githubusercontent.com/44854519/154897306-5c7edee4-9e60-48ec-98a4-db11333608a9.png)
 ![Screenshot 2022-02-20![Screenshot 2022-02-20 at 21-53-44 React App](https://user-images.githubusercontent.com/44854519/154897354-4b2f3f35-a176-4255-a3da-3c9d561701ef.png)
+![Screenshot 2022-02-20 at 21-53-16 React App](https://user-images.githubusercontent.com/44854519/154897493-9f1ba7a7-f42f-44b7-809e-8e1aa0b576bb.png)
 ![Screenshot 2022-02-20 at 21-53-31 React App](https://user-images.githubusercontent.com/44854519/154897445-e4321482-64a6-447c-8fd2-9d37b5863b2a.png)
-![Screenshot 2022-02-20 at 21-53-31 React App](https://user-images.githubusercontent.com/44854519/154897341-4af609b9-0bf3-4271-a749-fab603403a58.png)
 ![Screenshot 2022-02-20 at 21-52-11 React App](https://user-images.githubusercontent.com/44854519/154897350-754ca2c6-b909-431e-bbfb-5c2dd5e0d0f8.png)
 
 
