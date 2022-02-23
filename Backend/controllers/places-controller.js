@@ -1,4 +1,5 @@
 const { validationResult } = require("express-validator");
+const fs = require("fs");
 
 const HttpError = require("../models/http-error");
 const getCoordsForAdress = require("../util/location");
@@ -49,8 +50,6 @@ const getPlacesByUserId = async (req, res, next) => {
     return next(error);
   }
 
-  console.log(userWithPlaces);
-
   //if userid doesnt exist or user doesnt have any place added yet
   if (!userWithPlaces || userWithPlaces.places.length === 0) {
     // OR if (!places || places.length === 0) {
@@ -91,8 +90,7 @@ const createPlace = async (req, res, next) => {
     description,
     address,
     location: coordinates,
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Empire_State_Building_%28aerial_view%29.jpg/800px-Empire_State_Building_%28aerial_view%29.jpg",
+    image: req.file.path,
     creator, //referencing user Object id from User collection
   });
 
@@ -189,36 +187,43 @@ const deletePlace = async (req, res, next) => {
 
   let place;
   try {
-    place = await Place.findById(placeId).populate('creator');
+    place = await Place.findById(placeId).populate("creator");
   } catch (err) {
     const error = new HttpError(
-      'Something went wrong, could not delete place.',
+      "Something went wrong, could not delete place.",
       500
     );
     return next(error);
   }
 
   if (!place) {
-    const error = new HttpError('Could not find place for this id.', 404);
+    const error = new HttpError("Could not find place for this id.", 404);
     return next(error);
   }
+
+  const imagePath = place.image;
 
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-    await place.remove({session: sess});
+    await place.remove({ session: sess });
     place.creator.places.pull(place);
-    await place.creator.save({session: sess});
+    await place.creator.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError(
-      'Something went wrong, could not delete place.',
+      "Something went wrong, could not delete place.",
       500
     );
     return next(error);
   }
+
+  //delete image in uploads/images
+  fs.unlink(imagePath, (err) => {
+    console.log(err);
+  });
   
-  res.status(200).json({ message: 'Deleted place.' });
+  res.status(200).json({ message: "Deleted place." });
 };
 
 //export multiple functions
