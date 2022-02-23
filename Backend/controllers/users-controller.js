@@ -21,8 +21,6 @@ const signup = async (req, res, next) => {
   //verify validation results
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log(errors);
-    res.status(422);
     return next(new HttpError("Invalid inputs, please check your data.", 422));
   }
   const { name, email, password } = req.body;
@@ -49,8 +47,7 @@ const signup = async (req, res, next) => {
   const createdUser = new User({
     name,
     email,
-    image:
-      "https://i.pinimg.com/736x/f3/f1/09/f3f1095eceffe27ec0d8c15696de8e11.jpg",
+    image: req.file.path,
     password,
     places: [],
   });
