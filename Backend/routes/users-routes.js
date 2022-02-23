@@ -10,7 +10,7 @@ router.get("/", usersController.getUsers);
 
 router.post(
   "/signup",
-  fileUpload.single("image"), //proocess the image file
+  fileUpload.single("image"), //process the file with key: 'image
   [
     check("name").not().isEmpty(),
     check("email").normalizeEmail().isEmail(), //Test@test.com => test@test.com
