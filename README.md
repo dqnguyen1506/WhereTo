@@ -12,7 +12,7 @@ WhereTo is a scalable location-sharing social application run on MERN Stack (Mon
 * Add/manage/display locations (Google Maps/Google Geocoding APIs)
 * Store Images
    
-### Deployed website: [In Progress]
+### Deployed website: [WhereTo](https://whereto-341418.web.app/)
 
 ## Developer Guide
 
