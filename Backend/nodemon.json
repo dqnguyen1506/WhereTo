@@ -1,0 +1,9 @@
+{
+    "env": {
+        "DB_USER": "dungqnguyen1506",
+        "DB_PASSWORD": "kbZ39aT6OsKM4upN",
+        "DB_NAME": "WhereTo",
+        "GOOGLE_API_KEY": "AIzaSyDv8raGDYAIm-SLD5icIBD_rkFR_bRShMQ",
+        "JWT_KEY": "supersecret_dont_share"
+    }
+}

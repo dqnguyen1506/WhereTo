@@ -13,16 +13,16 @@ const Users = () => {
     const fetchUser = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/users"
+          process.env.REACT_APP_BACKEND_URL + "/users"
         ); //default GET
 
         setLoadedUsers(responseData.users);
       } catch (err) {}
     };
     fetchUser();
-    //sendRequest change when re-initilized ==> a dependency, must include here 
+    //sendRequest change when re-initilized ==> a dependency, must include here
     //=> useCallback() to prevent it from changing and ensuring useEffect only runss once after component mounted
-  }, [sendRequest]); 
+  }, [sendRequest]);
 
   return (
     <React.Fragment>

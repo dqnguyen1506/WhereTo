@@ -82,7 +82,7 @@ const signup = async (req, res, next) => {
         email: createdUser.email,
       },
       //private key
-      "supersecret_dont_share",
+      process.env.JWT_KEY,
       //expiration
       { expiresIn: "1h" }
     );
@@ -154,7 +154,7 @@ const login = async (req, res, next) => {
         email: existingUser.email,
       },
       //private key
-      "supersecret_dont_share",
+      process.env.JWT_KEY,
       //expiration
       { expiresIn: "1h" }
     );

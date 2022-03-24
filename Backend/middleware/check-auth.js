@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
       throw new HttpError("Authentication failed!");
     }
     //verify and return the payload that encoded into the token (id, email)
-    const decodedToken = jwt.verify(token, 'supersecret_dont_share');
+    const decodedToken = jwt.verify(token, process.env.JWT_KEY);
     //add to request the userId acquire from the decoded token ==> authentication (only authorized user can edit/delete place)
     req.userData = {userId: decodedToken.userId};
     //valid token ==> allow request to continue travelling through other middlewares
